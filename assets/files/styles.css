@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+.volkhov-regular, h1, h2, h3, h4, h5, h6 {
+  font-family: "Volkhov", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-image: linear-gradient(90deg, #0055ff, #00ff51);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 3s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 100% 0; }
+  50% { background-position: 0% 0; }
+  100% { background-position: 100% 0; }
+}
+
+.volkhov-bold {
+  font-family: "Volkhov", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lora, .open-sans, p, ul, li, a {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+h1 { padding-left: 1.5vw; padding-top: 1vw; }
+p { padding-left: 1.5vw; padding-right: 1.5vw; }
+
+/* ---------------- Navbar Buttons ---------------- */
+.optionlink {
+  position: relative;
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 1.5vw;
+  margin-right: 15px;
+  text-decoration: none;
+  overflow: hidden;
+  color: black;
+  transition: color 0.3s ease, transform 0.2s ease;
+  z-index: 1;
+}
+
+.optionlink::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0055ff, #00ff51);
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-position 0.8s ease;
+  z-index: -1;
+}
+
+.navbar.transparent .optionlink::before {
+  opacity: 1;
+}
+
+.navbar.transparent .optionlink {
+  color: white;
+}
+
+.navbar.transparent .optionlink:hover::before {
+  background-position: 100% 50%;
+}
+
+.navbar.transparent .optionlink:hover {
+  filter: brightness(1.1);
+}
+
+.navbar.scrolled .optionlink:hover::before {
+  opacity: 1;
+  background-position: 100% 50%;
+}
+
+.navbar.scrolled .optionlink:hover {
+  color: white;
+}
+
+/* Make gradient stay full size and avoid squish */
+.optionlink::before {
+  transform: scale(1.05);
+}
+
+/* ---------------- Navbar States ---------------- */
+.navbar {
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar.transparent {
+  background-color: transparent !important;
+  box-shadow: none;
+}
+
+.navbar.scrolled {
+  background-color: rgba(245, 245, 245, 0.95) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------- Jumbotron ---------------- */
+.jumbotron {
+  position: relative;
+  height: 90vh;
+  background: url('../images/XP Desktop.png') center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.jumbotron::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.jumbotron-content {
+  position: relative;
+  z-index: 1;
+}
+
+.jumbotron h1 {
+  font-size: 4rem;
+  color: white;
+  background: none;
+}
+
+.jumbotron p {
+  color: white;
+  font-size: 1.3rem;
+}
+
+/* ---------------- Image Frames ---------------- */
+.img-container {
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+  background: linear-gradient(45deg, #0055ff, #00ff51);
+  border-radius: 0.7vw;
+  overflow: hidden;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.7vw;
+}
+
+/* ---------------- Mobile ---------------- */
+@media only screen and (max-width: 864px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body {
+    position: relative;
+  }
+
+  .container, .container-fluid, .row, .col, .col-md-4, .col-md-8 {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .navbar-nav .nav-link {
+    margin-right: 10px;
+    padding: 20px 32px;
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+
+  .navbar-toggler {
+    margin-left: auto;
+  }
+
+  .img-container {
+    padding: 5px;
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  h1 {
+    padding-top: 3vw;
+  }
+
+  .navbar-collapse {
+    margin-top: 10px;
+  }
+
+  .jumbotron h1 {
+    font-size: 2.5rem;
+  }
+
+  .jumbotron p {
+    font-size: 1rem;
+  }
+
+  /* fix for gradient pseudo element overflow */
+  .optionlink::before {
+    transform: scale(1);
+  }
+}

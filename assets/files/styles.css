@@ -32,7 +32,7 @@
   font-style: normal;
 }
 
-h1 { padding-left: 1.5vw; padding-top: 1vw; }
+h1, h2 { padding-left: 1.5vw; padding-top: 1vw; }
 p { padding-left: 1.5vw; padding-right: 1.5vw; }
 
 /* ---------------- Navbar Buttons ---------------- */
@@ -87,7 +87,7 @@ p { padding-left: 1.5vw; padding-right: 1.5vw; }
   color: white;
 }
 
-/* Make gradient stay full size and avoid squish */
+
 .optionlink::before {
   transform: scale(1.05);
 }
@@ -200,7 +200,7 @@ p { padding-left: 1.5vw; padding-right: 1.5vw; }
     display: block;
   }
 
-  h1 {
+  h1, h2 {
     padding-top: 3vw;
   }
 
@@ -216,8 +216,18 @@ p { padding-left: 1.5vw; padding-right: 1.5vw; }
     font-size: 1rem;
   }
 
-  /* fix for gradient pseudo element overflow */
   .optionlink::before {
     transform: scale(1);
   }
+}
+
+/* ---------------- Misc ---------------- */
+footer {
+  background-color: rgb(230, 230, 230);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+br {
+  padding: 8px;
 }
